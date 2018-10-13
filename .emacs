@@ -82,3 +82,6 @@
 (add-hook 'c-mode-common-hook 'my:add-semantic-to-autocomplete)
 ;; Turn on auto reparsing of open buffers for semantic
 (global-semantic-idle-scheduler-mode 1)
+
+;; launch c++-mode for CUDA code
+(add-to-list 'auto-mode-alist '("\\.cu$" . c++-mode))
