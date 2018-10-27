@@ -6,7 +6,7 @@
   )
 
 ;; List of packages
-(setq package-list '(ledger-mode gnuplot-mode auto-complete yasnippet yasnippet-snippets auto-complete-c-headers flymake-google-cpplint flymake-cursor google-c-style))
+(setq package-list '(dumb-jump ledger-mode gnuplot-mode auto-complete yasnippet yasnippet-snippets auto-complete-c-headers flymake-google-cpplint flymake-cursor google-c-style))
 
 ;; Activate all the packages (in particular autoloads)
 (package-initialize)
