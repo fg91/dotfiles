@@ -6,7 +6,7 @@
   )
 
 ;; List of packages
-(setq package-list '(dumb-jump ledger-mode gnuplot-mode auto-complete yasnippet yasnippet-snippets auto-complete-c-headers flymake-google-cpplint flymake-cursor google-c-style))
+(setq package-list '(auctex dumb-jump ledger-mode gnuplot-mode auto-complete yasnippet yasnippet-snippets auto-complete-c-headers flymake-google-cpplint flymake-cursor google-c-style))
 
 ;; Activate all the packages (in particular autoloads)
 (package-initialize)
@@ -52,7 +52,7 @@
 ;; Find out where system header files are using gcc -xc++ -E -v -
 
 ;; Fix iedit bug in Mac
-;; (define-key global-map (kbd "C-c ;") 'iedit-mode)
+(define-key global-map (kbd "C-c ;") 'iedit-mode)
 
 ;; flymake-google-cpplint
 ;; (you need to install cpplint with pip)
@@ -85,3 +85,31 @@
 
 ;; launch c++-mode for CUDA code
 (add-to-list 'auto-mode-alist '("\\.cu$" . c++-mode))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (google-c-style flymake-cursor flymake-google-cpplint auto-complete-c-headers yasnippet-snippets yasnippet auto-complete gnuplot-mode ledger-mode dumb-jump))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+;; customize AUCTeX
+(setq TeX-auto-save t)
+(setq TeX-parse-self t)
+(setq-default TeX-master nil)
+
+(add-hook 'LaTeX-mode-hook 'visual-line-mode) ;; you might prefer auto-fill-mode
+(add-hook 'LaTeX-mode-hook 'flyspell-mode)
+(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
+
+(add-hook 'LaTeX-mode-hook 'turn-on-reftex)
+(setq reftex-plug-into-AUCTeX t)
+
+(setq TeX-PDF-mode t)  ;; compile document to PDF
